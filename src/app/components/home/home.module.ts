@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -12,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
     HomeRoutingModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatFormFieldModule,
   ],
 })
 export class HomeModule {}

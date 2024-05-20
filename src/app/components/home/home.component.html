@@ -1,8 +1,56 @@
 <main id="home">
   <h1>Sorteio de indicadores por nome</h1>
 
-  <section>
+  <section
+    class="w-1/2 flex items-center flex-col gap-4 justify-center my-0 mx-auto mt-20"
+    [formGroup]="form"
+  >
+    <mat-form-field class="w-full">
+      <mat-label>Quantidade de semanas</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="weeks"
+        placeholder="Ex. 4"
+        max="5"
+        min="0"
+      />
 
+      <mat-error *ngIf="form.get('weeks')?.invalid">
+        Máximo de 5 semanas em um mês</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Quantidade de pessoas</mat-label>
+      <input
+        matInput
+        type="number"
+        formControlName="folks"
+        placeholder="Ex. 10"
+        min="0"
+      />
+    </mat-form-field>
   </section>
 
+  <section
+    *ngIf="totalCount"
+    class="w-1/2 flex items-center flex-col my-0 mx-auto mt-20 names-container"
+    [formGroup]="folksForm"
+  >
+    <ng-container
+      *ngFor="let folk of [].constructor(totalCount); let i = index"
+    >
+      <mat-form-field class="w-full">
+        <mat-label>Nome {{ i + 1 }}</mat-label>
+        <input
+          matInput
+          [formControlName]="'folk' + (i + 1)"
+          placeholder="Ex. Jõaozim das costa larga"
+        />
+      </mat-form-field>
+    </ng-container>
+  </section>
+
+  <button class="my-0 mx-auto mt-20" (click)="test()">Sortear</button>
 </main>

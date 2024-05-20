@@ -1,10 +1,37 @@
 #home {
   padding: 20px;
-
+  text-align: center;
   h1 {
     font-family: "Lato";
     font-size: 32px;
-    height: calc(100dvh - 70px);
     text-align: center;
+  }
+  .names-container {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 20px;
+
+    @supports (overflow-y: overlay) {
+      overflow-y: overlay;
+    }
+  }
+  button {
+    align-items: center;
+    background-color: #000;
+    border-radius: 15px;
+    border: none;
+    color: #fff;
+    display: flex;
+    font-family: "Lato";
+    font-size: 20px;
+    font-weight: bold;
+    height: 40px;
+    justify-content: center;
+    padding: 20px;
+    transition: 0.3s ease-in background-color;
+
+    &:hover {
+      background-color: #0000008a;
+    }
   }
 }
